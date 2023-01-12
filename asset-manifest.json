@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.bff745c5.css",
-    "main.js": "/static/js/main.885ec924.js",
-    "index.html": "/index.html",
-    "main.bff745c5.css.map": "/static/css/main.bff745c5.css.map",
-    "main.885ec924.js.map": "/static/js/main.885ec924.js.map"
+    "main.css": "/social-planet/static/css/main.bff745c5.css",
+    "main.js": "/social-planet/static/js/main.885ec924.js",
+    "index.html": "/social-planet/index.html",
+    "main.bff745c5.css.map": "/social-planet/static/css/main.bff745c5.css.map",
+    "main.885ec924.js.map": "/social-planet/static/js/main.885ec924.js.map"
   },
   "entrypoints": [
     "static/css/main.bff745c5.css",
