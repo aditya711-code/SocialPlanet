@@ -5,12 +5,14 @@ import { toast } from 'react-toastify';
 import { usePosts, useAuth } from '../hooks';
 import { useEffect } from 'react';
 import { getComments } from '../api';
+import { Navigate, useNavigate } from 'react-router-dom';
 const Comment = ({ comment, post }) => {
   const posts = usePosts();
   const auth = useAuth();
-
+  const navigate = useNavigate();
   const handleDeleteComment = async () => {
     const response = await deleteComment(comment._id);
+    console.log('response', response);
 
     if (response.success) {
       posts.delComment(post._id, comment._id);
@@ -18,6 +20,7 @@ const Comment = ({ comment, post }) => {
       toast.success('Deleted successfully', {
         position: toast.POSITION.TOP_LEFT,
       });
+      return navigate('/');
     } else {
       toast.error(response.message, {
         position: toast.POSITION.TOP_LEFT,

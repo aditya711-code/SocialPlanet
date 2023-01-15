@@ -145,7 +145,7 @@ export const usePosts = () => {
 export const useProvidePosts = () => {
   const [posts, setPosts] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [comments, setComments] = useState([]);
+
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await getPosts();
@@ -154,7 +154,6 @@ export const useProvidePosts = () => {
 
       if (response.success) {
         setPosts(response.data.posts);
-        setComments(response.data.posts.comments);
       }
 
       setLoading(false);
@@ -177,18 +176,16 @@ export const useProvidePosts = () => {
     setPosts(newPosts);
   };
   const delComment = (postId, commentId) => {
-    console.log('Enter for deleting comment');
     const newPosts = posts.map((post) => {
       if (post._id === postId) {
-        const result = post.comments.filter(
+        const commentsAfterdeletion = post.comments.filter(
           (comment) => comment._id !== commentId
         );
-        setComments(result);
-        console.log('Result', result);
-        return { ...post, comments: comments };
+        return { ...post, comments: commentsAfterdeletion };
       }
       return post;
     });
+
     setPosts(newPosts);
   };
 
